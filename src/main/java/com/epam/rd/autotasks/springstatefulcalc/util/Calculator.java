@@ -1,8 +1,5 @@
 package com.epam.rd.autotasks.springstatefulcalc.util;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -31,7 +28,7 @@ public class Calculator {
     }
 
     public boolean addValues(String variable, String value) {
-        if (value.matches("[+-]?[0-9]+") && (Integer.parseInt(value) > 10000 || Integer.parseInt(value) < -10000)){
+        if (value.matches("[+-]?\\d+") && (Integer.parseInt(value) > 10000 || Integer.parseInt(value) < -10000)){
             throw new IllegalArgumentException();
         }
         return this.values.put(variable, value) != null;
